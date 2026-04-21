@@ -69,7 +69,7 @@ const Slide1 = ({ active }: { active: boolean }) => {
 
       <div className="mb-6 animate-fade-in" style={{ animationDelay: "0.1s", opacity: 0 }}>
         <span className="font-oswald text-xs tracking-[0.3em] uppercase text-gray-500 border border-gray-700 px-4 py-1.5 rounded-full">
-          Сыктывкарский лесопромышленный техникум · 2024
+          Сыктывкарский лесопромышленный техникум · 2026
         </span>
       </div>
 
@@ -594,7 +594,7 @@ const Slide8 = ({ active }: { active: boolean }) => {
           </p>
           <div className="mt-4 flex items-center justify-center gap-2">
             <div className="w-8 h-px bg-gray-700" />
-            <span className="font-mono text-xs text-gray-600 tracking-widest">ГБПОУ · 2024</span>
+            <span className="font-mono text-xs text-gray-600 tracking-widest">ГБПОУ · 2026</span>
             <div className="w-8 h-px bg-gray-700" />
           </div>
         </div>
