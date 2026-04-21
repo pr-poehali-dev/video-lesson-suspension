@@ -97,7 +97,7 @@ const Slide1 = ({ active }: { active: boolean }) => {
         style={{ animationDelay: "0.6s", opacity: 0 }}>
         <p className="font-golos text-white font-medium text-base">Владимирова Полина Вадимовна</p>
         <p className="font-golos text-gray-500 text-sm mt-1">Специальность: Техническое обслуживание и ремонт автомобилей</p>
-        <p className="font-golos text-gray-500 text-sm">Руководитель: Петров А.В. · Группа 2ТО-23</p>
+        <p className="font-golos text-gray-500 text-sm">Руководитель: Кирпечова О.А. · Группа МРОА 12</p>
       </div>
 
       <div className="absolute bottom-10 right-16 font-mono text-xs text-gray-700 animate-fade-in"
