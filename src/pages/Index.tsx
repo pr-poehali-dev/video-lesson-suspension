@@ -328,86 +328,158 @@ const Slide4 = ({ active }: { active: boolean }) => {
   );
 };
 
-// ─── Слайд 5: Результат ───────────────────────────────────────────────────────
+// ─── Слайд 5: LEGO-модель ─────────────────────────────────────────────────────
 const Slide5 = ({ active }: { active: boolean }) => {
   if (!active) return null;
+
+  const parts = [
+    { label: "ПРУЖИНА", color: "#00d4ff", desc: "Закон Гука: F = −kx", x: "18%", y: "28%", lineX2: "22%", lineY2: "42%" },
+    { label: "АМОРТИЗАТОР", color: "#ff6b6b", desc: "Fд = −c·v", x: "58%", y: "22%", lineX2: "52%", lineY2: "38%" },
+    { label: "РЫЧАГ", color: "#ffb300", desc: "Передача усилия", x: "72%", y: "58%", lineX2: "62%", lineY2: "60%" },
+    { label: "КОЛЕСО", color: "#00ff88", desc: "Точка контакта с дорогой", x: "14%", y: "72%", lineX2: "28%", lineY2: "72%" },
+  ];
+
   return (
-    <div className="h-full flex flex-col px-10 py-8 grid-bg">
-      <div className="mb-6 animate-fade-in" style={{ animationDelay: "0.1s", opacity: 0 }}>
-        <span className="font-mono text-xs text-green-500/60 tracking-widest">СЛАЙД 05 / РЕЗУЛЬТАТ</span>
+    <div className="h-full flex flex-col px-10 py-8 dot-bg">
+      <div className="mb-4 animate-fade-in" style={{ animationDelay: "0.1s", opacity: 0 }}>
+        <div className="flex items-center gap-3">
+          <span className="font-mono text-xs text-amber-500/60 tracking-widest">СЛАЙД 05 / ДЕМОНСТРАЦИЯ</span>
+          <span className="font-mono text-xs bg-amber-400/15 border border-amber-400/40 text-amber-300 px-2 py-0.5 rounded">★ КЛЮЧЕВОЙ СЛАЙД</span>
+        </div>
         <h2 className="font-oswald text-4xl font-bold text-white mt-1">
-          Готовый <span className="glow-green">продукт</span>
+          LEGO-модель <span className="glow-amber">подвески</span>
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1">
-        <div className="neon-border rounded-xl p-6 flex flex-col animate-fade-in"
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-5 gap-5">
+        {/* Модель — основная зона */}
+        <div className="md:col-span-3 relative bg-gray-950/80 rounded-2xl border border-amber-400/20 overflow-hidden animate-fade-in"
           style={{ animationDelay: "0.2s", opacity: 0 }}>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 rounded-xl bg-cyan-400/10 border border-cyan-400/30 flex items-center justify-center animate-pulse-glow">
-              <Icon name="PlayCircle" size={24} className="text-cyan-400" />
-            </div>
-            <div>
-              <h3 className="font-oswald text-xl text-white">Видеоурок</h3>
-              <span className="font-mono text-xs text-gray-500">«Подвеска: физика и практика»</span>
-            </div>
-          </div>
-          <div className="space-y-2 flex-1">
-            <CheckItem text="Теоретическая часть с анимированными формулами (12 мин.)" delay={0.3} />
-            <CheckItem text="Демонстрация действующей модели с комментариями" delay={0.4} />
-            <CheckItem text="Практические задачи и разбор решений" delay={0.5} />
-            <CheckItem text="Итоговые выводы и связь с профессией" delay={0.6} />
-          </div>
-          <div className="mt-4 bg-green-500/10 border border-green-500/30 rounded-lg px-4 py-2 flex items-center gap-2 animate-fade-in"
-            style={{ animationDelay: "0.7s", opacity: 0 }}>
-            <Icon name="CheckCircle" size={16} className="text-green-400" />
-            <span className="font-golos text-green-300 text-sm">Видеоурок готов и размещён на учебном портале</span>
-          </div>
-        </div>
 
-        <div className="bg-gray-900/60 border border-amber-400/20 rounded-xl p-6 flex flex-col animate-fade-in"
-          style={{ animationDelay: "0.3s", opacity: 0 }}>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center">
-              <span className="text-2xl">🔧</span>
-            </div>
-            <div>
-              <h3 className="font-oswald text-xl text-white">Действующая модель</h3>
-              <span className="font-mono text-xs text-gray-500">Масштаб 1:5 · Металл + полимеры</span>
-            </div>
-          </div>
+          {/* Заглушка-фото модели в виде детальной SVG */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <svg viewBox="0 0 500 340" className="w-full h-full p-6">
+              {/* Фон-платформа */}
+              <rect x="0" y="280" width="500" height="60" fill="#111827" rx="4" />
+              <line x1="0" y1="280" x2="500" y2="280" stroke="#374151" strokeWidth="1.5" strokeDasharray="30,15" />
 
-          <div className="flex-1 bg-gray-950/60 rounded-lg p-4 mb-4 relative overflow-hidden">
-            <svg viewBox="0 0 280 160" className="w-full h-full">
-              <rect x="0" y="145" width="280" height="15" fill="#1a1a2e" rx="2" />
-              <line x1="0" y1="145" x2="280" y2="145" stroke="#374151" strokeWidth="1" strokeDasharray="20,10" />
-              <circle cx="80" cy="130" r="20" fill="none" stroke="#6b7280" strokeWidth="2.5" />
-              <circle cx="80" cy="130" r="8" fill="none" stroke="#4b5563" strokeWidth="1.5" />
-              <line x1="80" y1="110" x2="110" y2="95" stroke="#9ca3af" strokeWidth="2" />
-              {[0,1,2,3,4].map((i) => (
-                <path key={i} d={`M ${110 + (i % 2 === 0 ? -8 : 8)} ${95 - i * 8} Q ${110 + (i % 2 === 0 ? 8 : -8)} ${95 - i * 8 + 4} ${110 + (i % 2 === 0 ? 8 : -8)} ${95 - (i + 1) * 8}`} stroke="#00d4ff" strokeWidth="2" fill="none" />
+              {/* LEGO-кузов */}
+              <rect x="100" y="60" width="300" height="80" fill="#1d4ed8" rx="8" stroke="#3b82f6" strokeWidth="2" />
+              <rect x="115" y="48" width="270" height="20" fill="#2563eb" rx="4" stroke="#60a5fa" strokeWidth="1.5" />
+              {/* LEGO-шипы на кузове */}
+              {[130,160,190,220,250,280,310,340].map((x, i) => (
+                <circle key={i} cx={x} cy={42} r={7} fill="#1d4ed8" stroke="#60a5fa" strokeWidth="1.5" />
               ))}
-              <rect x="125" y="55" width="8" height="45" fill="#374151" rx="2" />
-              <rect x="127" y="75" width="4" height="20" fill="#6b7280" rx="1" />
-              <rect x="30" y="25" width="180" height="40" fill="#1e293b" rx="6" stroke="#334155" strokeWidth="1.5" />
-              <text x="120" y="50" textAnchor="middle" fill="#94a3b8" fontSize="10" fontFamily="IBM Plex Mono">КУЗОВ</text>
-              <circle cx="200" cy="130" r="20" fill="none" stroke="#6b7280" strokeWidth="2.5" />
-              <circle cx="200" cy="130" r="8" fill="none" stroke="#4b5563" strokeWidth="1.5" />
-              <line x1="200" y1="110" x2="175" y2="95" stroke="#9ca3af" strokeWidth="2" />
-              {[0,1,2,3,4].map((i) => (
-                <path key={i} d={`M ${175 + (i % 2 === 0 ? 8 : -8)} ${95 - i * 8} Q ${175 + (i % 2 === 0 ? -8 : 8)} ${95 - i * 8 + 4} ${175 + (i % 2 === 0 ? -8 : 8)} ${95 - (i + 1) * 8}`} stroke="#00d4ff" strokeWidth="2" fill="none" />
+              <text x="250" y="107" textAnchor="middle" fill="#93c5fd" fontSize="13" fontFamily="IBM Plex Mono" fontWeight="bold">КУЗОВ · LEGO</text>
+
+              {/* Левая стойка — амортизатор */}
+              <rect x="148" y="140" width="12" height="80" fill="#374151" rx="3" stroke="#6b7280" strokeWidth="1.5" />
+              <rect x="150" y="165" width="8" height="35" fill="#9ca3af" rx="2" />
+              {/* Левая пружина */}
+              {[0,1,2,3,4,5].map((i) => (
+                <path key={i}
+                  d={`M ${135 + (i % 2 === 0 ? -10 : 10)} ${140 + i * 11} Q ${135 + (i % 2 === 0 ? 10 : -10)} ${140 + i * 11 + 5} ${135 + (i % 2 === 0 ? 10 : -10)} ${140 + (i + 1) * 11}`}
+                  stroke="#00d4ff" strokeWidth="2.5" fill="none" />
               ))}
-              <rect x="147" y="55" width="8" height="45" fill="#374151" rx="2" />
-              <rect x="149" y="75" width="4" height="20" fill="#6b7280" rx="1" />
-              <text x="50" y="162" fill="#4b5563" fontSize="8" fontFamily="IBM Plex Mono">ПРУЖИНА</text>
-              <text x="120" y="162" fill="#4b5563" fontSize="8" fontFamily="IBM Plex Mono">АМОРТИЗАТОР</text>
+
+              {/* Правая стойка — амортизатор */}
+              <rect x="340" y="140" width="12" height="80" fill="#374151" rx="3" stroke="#6b7280" strokeWidth="1.5" />
+              <rect x="342" y="165" width="8" height="35" fill="#9ca3af" rx="2" />
+              {/* Правая пружина */}
+              {[0,1,2,3,4,5].map((i) => (
+                <path key={i}
+                  d={`M ${365 + (i % 2 === 0 ? -10 : 10)} ${140 + i * 11} Q ${365 + (i % 2 === 0 ? 10 : -10)} ${140 + i * 11 + 5} ${365 + (i % 2 === 0 ? 10 : -10)} ${140 + (i + 1) * 11}`}
+                  stroke="#00d4ff" strokeWidth="2.5" fill="none" />
+              ))}
+
+              {/* Левый рычаг */}
+              <line x1="100" y1="230" x2="155" y2="215" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" />
+              {/* Правый рычаг */}
+              <line x1="400" y1="230" x2="345" y2="215" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" />
+
+              {/* Левое колесо */}
+              <circle cx="85" cy="255" r="30" fill="none" stroke="#6b7280" strokeWidth="5" />
+              <circle cx="85" cy="255" r="18" fill="none" stroke="#4b5563" strokeWidth="3" />
+              <circle cx="85" cy="255" r="6" fill="#374151" stroke="#9ca3af" strokeWidth="2" />
+              {[0,60,120,180,240,300].map((angle, i) => (
+                <line key={i}
+                  x1={85 + Math.cos(angle * Math.PI / 180) * 7}
+                  y1={255 + Math.sin(angle * Math.PI / 180) * 7}
+                  x2={85 + Math.cos(angle * Math.PI / 180) * 17}
+                  y2={255 + Math.sin(angle * Math.PI / 180) * 17}
+                  stroke="#6b7280" strokeWidth="2" />
+              ))}
+
+              {/* Правое колесо */}
+              <circle cx="415" cy="255" r="30" fill="none" stroke="#6b7280" strokeWidth="5" />
+              <circle cx="415" cy="255" r="18" fill="none" stroke="#4b5563" strokeWidth="3" />
+              <circle cx="415" cy="255" r="6" fill="#374151" stroke="#9ca3af" strokeWidth="2" />
+              {[0,60,120,180,240,300].map((angle, i) => (
+                <line key={i}
+                  x1={415 + Math.cos(angle * Math.PI / 180) * 7}
+                  y1={255 + Math.sin(angle * Math.PI / 180) * 7}
+                  x2={415 + Math.cos(angle * Math.PI / 180) * 17}
+                  y2={255 + Math.sin(angle * Math.PI / 180) * 17}
+                  stroke="#6b7280" strokeWidth="2" />
+              ))}
+
+              {/* Подписи со стрелками */}
+              {/* Пружина */}
+              <line x1="118" y1="175" x2="65" y2="155" stroke="#00d4ff" strokeWidth="1" strokeDasharray="4,3" />
+              <text x="60" y="148" textAnchor="end" fill="#00d4ff" fontSize="11" fontFamily="IBM Plex Mono">ПРУЖИНА</text>
+              <text x="60" y="160" textAnchor="end" fill="#4b5563" fontSize="9" fontFamily="IBM Plex Mono">F = −kx</text>
+
+              {/* Амортизатор */}
+              <line x1="352" y1="165" x2="440" y2="140" stroke="#ff6b6b" strokeWidth="1" strokeDasharray="4,3" />
+              <text x="445" y="135" fill="#ff6b6b" fontSize="11" fontFamily="IBM Plex Mono">АМОРТИЗАТОР</text>
+              <text x="445" y="147" fill="#4b5563" fontSize="9" fontFamily="IBM Plex Mono">Fд = −c·v</text>
+
+              {/* Рычаг */}
+              <line x1="125" y1="225" x2="70" y2="240" stroke="#ffb300" strokeWidth="1" strokeDasharray="4,3" />
+              <text x="65" y="252" textAnchor="end" fill="#ffb300" fontSize="11" fontFamily="IBM Plex Mono">РЫЧАГ</text>
+
+              {/* Колесо */}
+              <line x1="85" y1="285" x2="85" y2="310" stroke="#00ff88" strokeWidth="1" strokeDasharray="4,3" />
+              <text x="85" y="322" textAnchor="middle" fill="#00ff88" fontSize="11" fontFamily="IBM Plex Mono">КОЛЕСО</text>
             </svg>
           </div>
 
-          <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg px-4 py-2 flex items-center gap-2 animate-fade-in"
-            style={{ animationDelay: "0.7s", opacity: 0 }}>
-            <Icon name="CheckCircle" size={16} className="text-amber-400" />
-            <span className="font-golos text-amber-300 text-sm">Модель собрана, испытана и передана в кабинет</span>
+          {/* Плашка «живая модель» */}
+          <div className="absolute top-3 right-3 bg-amber-400/15 border border-amber-400/40 rounded-lg px-3 py-1.5 flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+            <span className="font-mono text-xs text-amber-300">ЖИВАЯ МОДЕЛЬ</span>
+          </div>
+        </div>
+
+        {/* Правая панель — детали */}
+        <div className="md:col-span-2 flex flex-col gap-3">
+          <p className="font-golos text-gray-500 text-xs animate-fade-in" style={{ animationDelay: "0.3s", opacity: 0 }}>
+            Модель полностью функциональна: пружины сжимаются, рычаги двигаются, колёса вращаются.
+          </p>
+
+          {[
+            { icon: "🔵", name: "Пружина", formula: "F = −kx", desc: "Жёсткость k подобрана под масштаб 1:5", color: "#00d4ff" },
+            { icon: "🔴", name: "Амортизатор", formula: "Fд = −c·v", desc: "Демпфирует колебания пружины", color: "#ff6b6b" },
+            { icon: "🟡", name: "Рычаг", formula: "M = F·L", desc: "Передаёт усилие от колеса к кузову", color: "#ffb300" },
+            { icon: "🟢", name: "Колесо", formula: "v = ωr", desc: "Единственная точка контакта с дорогой", color: "#00ff88" },
+          ].map((part, i) => (
+            <div key={i} className="bg-gray-900/70 rounded-xl p-3 border border-gray-700/40 animate-fade-in flex items-start gap-3"
+              style={{ animationDelay: `${0.4 + i * 0.1}s`, opacity: 0, borderLeftColor: part.color, borderLeftWidth: "2px" }}>
+              <span className="text-lg">{part.icon}</span>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-0.5">
+                  <span className="font-oswald text-sm font-bold text-white">{part.name}</span>
+                  <span className="font-mono text-xs px-1.5 py-0.5 rounded" style={{ color: part.color, background: `${part.color}15` }}>{part.formula}</span>
+                </div>
+                <p className="font-golos text-gray-500 text-xs">{part.desc}</p>
+              </div>
+            </div>
+          ))}
+
+          <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg px-3 py-2 flex items-center gap-2 animate-fade-in mt-auto"
+            style={{ animationDelay: "0.9s", opacity: 0 }}>
+            <Icon name="CheckCircle" size={14} className="text-amber-400 flex-shrink-0" />
+            <span className="font-golos text-amber-300 text-xs">Модель передана в кабинет техникума</span>
           </div>
         </div>
       </div>
@@ -415,50 +487,161 @@ const Slide5 = ({ active }: { active: boolean }) => {
   );
 };
 
-// ─── Слайд 6: Аудитория ───────────────────────────────────────────────────────
+// ─── Слайд 6: Как создавался видеоурок ───────────────────────────────────────
 const Slide6 = ({ active }: { active: boolean }) => {
   if (!active) return null;
-  const audiences = [
-    {
-      icon: "🔩", title: "Автослесарь", subtitle: "Техническое обслуживание", color: "#00d4ff",
-      points: ["Диагностика неисправностей подвески", "Понимание физики износа деталей", "Технические регламенты и допуски", "Безопасная эксплуатация подъёмников"],
-    },
-    {
-      icon: "👩‍🔧", title: "Девушки в автосфере", subtitle: "Женская аудитория", color: "#ff6b9d",
-      points: ["Доступное объяснение без жаргона", "Визуальное обучение с 3D-моделями", "Уверенность при обращении в сервис", "Карьера в автомобильной индустрии"],
-    },
-    {
-      icon: "📚", title: "Преподаватели", subtitle: "Методический материал", color: "#a78bfa",
-      points: ["Готовый учебный видеоматериал", "Физическая модель для урока", "Интеграция в рабочую программу", "Задачи с решениями по теме"],
-    },
+
+  const steps = [
+    { num: "01", icon: "📹", title: "Съёмка", desc: "Камера на штативе, демонстрация работы LEGO-модели крупным планом" },
+    { num: "02", icon: "✂️", title: "Монтаж в CapCut", desc: "Нарезка, синхронизация, наложение формул и подписей поверх видео" },
+    { num: "03", icon: "📐", title: "Вставка формул", desc: "Формулы Гука и Ньютона добавлены текстом с анимацией появления" },
+    { num: "04", icon: "🎵", title: "Озвучка и музыка", desc: "Закадровый голос с объяснением + фоновая музыка без слов" },
   ];
 
   return (
     <div className="h-full flex flex-col px-10 py-8 grid-bg">
-      <div className="mb-6 animate-fade-in" style={{ animationDelay: "0.1s", opacity: 0 }}>
-        <span className="font-mono text-xs text-purple-500/60 tracking-widest">СЛАЙД 06 / АУДИТОРИЯ</span>
+      <div className="mb-5 animate-fade-in" style={{ animationDelay: "0.1s", opacity: 0 }}>
+        <span className="font-mono text-xs text-cyan-500/60 tracking-widest">СЛАЙД 06 / ПРОИЗВОДСТВО</span>
         <h2 className="font-oswald text-4xl font-bold text-white mt-1">
-          Для кого этот <span style={{ color: "#a78bfa", textShadow: "0 0 10px rgba(167,139,250,0.4)" }}>проект?</span>
+          Как создавался <span className="glow-cyan">видеоурок</span>
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 flex-1">
-        {audiences.map((aud, i) => (
-          <div key={i} className="bg-gray-900/70 rounded-xl p-5 flex flex-col animate-fade-in border border-gray-700/40"
-            style={{ animationDelay: `${0.2 + i * 0.15}s`, opacity: 0, borderTopColor: `${aud.color}50`, borderTopWidth: "2px" }}>
-            <div className="text-3xl mb-3">{aud.icon}</div>
-            <h3 className="font-oswald text-xl font-bold mb-0.5" style={{ color: aud.color }}>{aud.title}</h3>
-            <p className="font-mono text-xs text-gray-600 mb-4">{aud.subtitle}</p>
-            <div className="space-y-2 flex-1">
-              {aud.points.map((p, j) => (
-                <div key={j} className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: aud.color }} />
-                  <span className="font-golos text-gray-400 text-xs leading-relaxed">{p}</span>
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-5 gap-5">
+        {/* Левая — «скриншот» стоп-кадра */}
+        <div className="md:col-span-3 flex flex-col gap-4">
+          {/* Мокап видеоредактора CapCut */}
+          <div className="flex-1 bg-gray-950 rounded-2xl border border-cyan-400/20 overflow-hidden animate-fade-in relative"
+            style={{ animationDelay: "0.2s", opacity: 0 }}>
+
+            {/* Шапка редактора */}
+            <div className="flex items-center gap-2 px-4 py-2 bg-gray-900 border-b border-gray-800">
+              <div className="flex gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                <div className="w-2.5 h-2.5 rounded-full bg-amber-500/70" />
+                <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+              </div>
+              <div className="flex-1 flex justify-center">
+                <div className="flex items-center gap-2 bg-gray-800 rounded px-3 py-0.5">
+                  <span className="text-base">✂️</span>
+                  <span className="font-oswald text-xs text-white tracking-wider">CapCut</span>
+                  <span className="font-mono text-xs text-gray-500">· Подвеска_урок_v3.mp4</span>
                 </div>
-              ))}
+              </div>
+            </div>
+
+            {/* Область предпросмотра */}
+            <div className="relative bg-black" style={{ aspectRatio: "16/7" }}>
+              {/* SVG-стоп-кадр */}
+              <svg viewBox="0 0 640 280" className="w-full h-full">
+                {/* Фон кадра */}
+                <rect width="640" height="280" fill="#0f172a" />
+                {/* Сетка */}
+                {[0,1,2,3,4,5,6,7,8].map(i => (
+                  <line key={i} x1={i*80} y1="0" x2={i*80} y2="280" stroke="#1e293b" strokeWidth="1" />
+                ))}
+                {[0,1,2,3,4].map(i => (
+                  <line key={i} x1="0" y1={i*70} x2="640" y2={i*70} stroke="#1e293b" strokeWidth="1" />
+                ))}
+
+                {/* LEGO-модель на заднем плане (стилизованно) */}
+                <rect x="80" y="100" width="220" height="60" fill="#1d4ed8" rx="6" stroke="#3b82f6" strokeWidth="1.5" opacity="0.8" />
+                <text x="190" y="136" textAnchor="middle" fill="#93c5fd" fontSize="11" fontFamily="IBM Plex Mono">LEGO-МОДЕЛЬ</text>
+                {[0,1,2,3].map((i) => (
+                  <path key={i} d={`M ${100 + (i % 2 === 0 ? -8 : 8)} ${165 + i * 9} Q ${100 + (i % 2 === 0 ? 8 : -8)} ${165 + i * 9 + 4} ${100 + (i % 2 === 0 ? 8 : -8)} ${165 + (i + 1) * 9}`}
+                    stroke="#00d4ff" strokeWidth="2" fill="none" />
+                ))}
+                <circle cx="120" cy="220" r="22" fill="none" stroke="#6b7280" strokeWidth="3" />
+                <circle cx="260" cy="220" r="22" fill="none" stroke="#6b7280" strokeWidth="3" />
+                <line x1="95" y1="200" x2="125" y2="190" stroke="#f59e0b" strokeWidth="3" />
+                <line x1="265" y1="200" x2="240" y2="190" stroke="#f59e0b" strokeWidth="3" />
+
+                {/* Блок с формулой — наложение CapCut */}
+                <rect x="340" y="60" width="260" height="120" fill="rgba(0,0,0,0.75)" rx="10" />
+                <rect x="340" y="60" width="260" height="4" fill="#00d4ff" rx="2" />
+                <text x="470" y="95" textAnchor="middle" fill="#64748b" fontSize="10" fontFamily="IBM Plex Mono">ЗАКОН ГУКА</text>
+                <text x="470" y="128" textAnchor="middle" fill="#00d4ff" fontSize="28" fontFamily="IBM Plex Mono" fontWeight="bold">F = −k·x</text>
+                <text x="360" y="158" fill="#64748b" fontSize="10" fontFamily="IBM Plex Mono">F — сила упругости (Н)</text>
+                <text x="360" y="172" fill="#64748b" fontSize="10" fontFamily="IBM Plex Mono">k — жёсткость пружины</text>
+
+                {/* Второй блок — второй закон */}
+                <rect x="340" y="195" width="120" height="60" fill="rgba(255,179,0,0.15)" rx="8" stroke="#ffb300" strokeWidth="1" />
+                <text x="400" y="220" textAnchor="middle" fill="#fbbf24" fontSize="10" fontFamily="IBM Plex Mono">2-й закон</text>
+                <text x="400" y="242" textAnchor="middle" fill="#ffffff" fontSize="18" fontFamily="IBM Plex Mono" fontWeight="bold">F=ma</text>
+
+                {/* Метка времени */}
+                <rect x="10" y="255" width="80" height="18" fill="rgba(0,0,0,0.6)" rx="3" />
+                <text x="50" y="268" textAnchor="middle" fill="#ffffff" fontSize="10" fontFamily="IBM Plex Mono">00:04:32</text>
+
+                {/* REC индикатор */}
+                <circle cx="615" cy="20" r="6" fill="#ff4444" opacity="0.9" />
+                <text x="605" y="38" textAnchor="middle" fill="#ff4444" fontSize="9" fontFamily="IBM Plex Mono">REC</text>
+              </svg>
+
+              {/* Иконка паузы поверх */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 backdrop-blur flex items-center justify-center">
+                  <Icon name="Pause" size={20} className="text-white" />
+                </div>
+              </div>
+            </div>
+
+            {/* Таймлайн редактора */}
+            <div className="px-4 py-2 bg-gray-900/80 border-t border-gray-800">
+              <div className="h-6 bg-gray-800 rounded relative overflow-hidden">
+                <div className="absolute left-0 top-0 h-full w-[42%] bg-gradient-to-r from-cyan-900/60 to-cyan-700/40 rounded-l" />
+                <div className="absolute left-[42%] top-0 h-full w-0.5 bg-white" />
+                <div className="flex items-center justify-between px-2 h-full">
+                  <span className="font-mono text-xs text-gray-600">0:00</span>
+                  <span className="font-mono text-xs text-gray-600">10:48</span>
+                </div>
+              </div>
+              <div className="flex gap-1 mt-1">
+                {["Видео", "Формулы", "Озвучка", "Музыка"].map((track, i) => (
+                  <div key={i} className="flex-1 h-2 rounded-full opacity-60"
+                    style={{ background: ["#00d4ff","#ffb300","#00ff88","#a78bfa"][i] }} />
+                ))}
+              </div>
             </div>
           </div>
-        ))}
+        </div>
+
+        {/* Правая — этапы */}
+        <div className="md:col-span-2 flex flex-col gap-3">
+          {/* Логотип CapCut */}
+          <div className="bg-gray-900/70 border border-gray-700/40 rounded-xl p-4 flex items-center gap-3 animate-fade-in"
+            style={{ animationDelay: "0.3s", opacity: 0 }}>
+            <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center flex-shrink-0">
+              <span className="text-xl">✂️</span>
+            </div>
+            <div>
+              <p className="font-oswald text-white text-base font-bold">CapCut</p>
+              <p className="font-mono text-xs text-gray-500">Инструмент монтажа · бесплатно</p>
+            </div>
+          </div>
+
+          {steps.map((step, i) => (
+            <div key={i} className="bg-gray-900/70 rounded-xl p-3 border border-gray-700/40 flex items-start gap-3 animate-fade-in"
+              style={{ animationDelay: `${0.4 + i * 0.1}s`, opacity: 0 }}>
+              <div className="w-7 h-7 rounded-lg bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center flex-shrink-0">
+                <span className="text-sm">{step.icon}</span>
+              </div>
+              <div>
+                <div className="flex items-center gap-2 mb-0.5">
+                  <span className="font-mono text-xs text-cyan-500">#{step.num}</span>
+                  <span className="font-oswald text-sm text-white">{step.title}</span>
+                </div>
+                <p className="font-golos text-gray-500 text-xs leading-relaxed">{step.desc}</p>
+              </div>
+            </div>
+          ))}
+
+          <div className="bg-green-500/10 border border-green-500/30 rounded-lg px-3 py-2 flex items-center gap-2 animate-fade-in mt-auto"
+            style={{ animationDelay: "0.9s", opacity: 0 }}>
+            <Icon name="CheckCircle" size={14} className="text-green-400 flex-shrink-0" />
+            <span className="font-golos text-green-300 text-xs">Видеоурок смонтирован и размещён</span>
+          </div>
+        </div>
       </div>
     </div>
   );
