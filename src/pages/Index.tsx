@@ -647,70 +647,105 @@ const Slide6 = ({ active }: { active: boolean }) => {
   );
 };
 
-// ─── Слайд 7: Перспективы ─────────────────────────────────────────────────────
+// ─── Слайд 7: Значимость ──────────────────────────────────────────────────────
 const Slide7 = ({ active }: { active: boolean }) => {
   if (!active) return null;
-  const plans = [
+
+  const blocks = [
     {
-      phase: "Фаза II", title: "Тормозная система", timeline: "2025 г.", icon: "⛔", color: "#ff4444",
-      items: ["Закон трения Амонтона", "Гидравлика тормозного привода", "Модель дискового тормоза"],
+      icon: "🔩",
+      title: "Для автослесаря",
+      subtitle: "Быстрая диагностика",
+      color: "#00d4ff",
+      tag: "Профессия",
+      tagColor: "#00d4ff",
+      main: "Понимание физики — ключ к точной диагностике",
+      points: [
+        "Зная закон Гука, слесарь определяет износ пружины без сложных приборов",
+        "Формула демпфирования помогает выявить неисправный амортизатор по звуку",
+        "Физическая база сокращает время диагностики в 2–3 раза",
+        "Снижается риск ошибочной замены исправных деталей",
+      ],
+      quote: "«Физика — это и есть диагностика без слов»",
     },
     {
-      phase: "Фаза III", title: "Рулевое управление", timeline: "2025–2026 г.", icon: "🎯", color: "#ffb300",
-      items: ["Передаточное число рейки", "Сила трения в шарнирах", "Кинематика поворота"],
+      icon: "👩‍🔧",
+      title: "Для девушек в автосфере",
+      subtitle: "Вдохновляющий пример",
+      color: "#ff6b9d",
+      tag: "Вдохновение",
+      tagColor: "#ff6b9d",
+      main: "Доказательство: техника доступна каждому",
+      points: [
+        "Проект показывает, что сложная тема объяснима простым языком",
+        "Видеоурок снят девушкой — это разрушает стереотипы об автосфере",
+        "LEGO-модель делает физику наглядной и нестрашной",
+        "Мотивирует выбирать технические специальности",
+      ],
+      quote: "«Я сделала это — значит, ты тоже сможешь»",
     },
     {
-      phase: "Фаза IV", title: "Двигатель ВС", timeline: "2026 г.", icon: "⚙️", color: "#00ff88",
-      items: ["Термодинамика цикла", "Механика кривошипного механизма", "КПД и тепловые потери"],
+      icon: "📚",
+      title: "Для преподавателей",
+      subtitle: "Готовый ресурс",
+      color: "#a78bfa",
+      tag: "Методика",
+      tagColor: "#a78bfa",
+      main: "Полный комплект для урока физики и спецдисциплин",
+      points: [
+        "Видеоурок готов к использованию без дополнительной подготовки",
+        "Физическая LEGO-модель остаётся в кабинете техникума",
+        "Задачи на основе реальной подвески — связь теории и практики",
+        "Материал легко встраивается в рабочую программу",
+      ],
+      quote: "«Лучший урок — тот, что можно потрогать руками»",
     },
   ];
 
   return (
-    <div className="h-full flex flex-col px-10 py-8 dot-bg">
-      <div className="mb-6 animate-fade-in" style={{ animationDelay: "0.1s", opacity: 0 }}>
-        <span className="font-mono text-xs text-amber-500/60 tracking-widest">СЛАЙД 07 / ПЕРСПЕКТИВЫ</span>
+    <div className="h-full flex flex-col px-10 py-8 grid-bg">
+      <div className="mb-5 animate-fade-in" style={{ animationDelay: "0.1s", opacity: 0 }}>
+        <span className="font-mono text-xs text-purple-500/60 tracking-widest">СЛАЙД 07 / ЗНАЧИМОСТЬ</span>
         <h2 className="font-oswald text-4xl font-bold text-white mt-1">
-          Планы <span className="glow-amber">развития</span>
+          Значимость для <span style={{ color: "#a78bfa", textShadow: "0 0 10px rgba(167,139,250,0.4)" }}>меня и других</span>
         </h2>
       </div>
 
-      <div className="relative mb-6 animate-fade-in" style={{ animationDelay: "0.2s", opacity: 0 }}>
-        <div className="flex items-center gap-0">
-          <div className="w-4 h-4 rounded-full bg-cyan-400 flex-shrink-0" />
-          <div className="flex-1 h-0.5 bg-gradient-to-r from-cyan-400 via-amber-400 to-green-400" />
-          <div className="w-4 h-4 rounded-full bg-red-400 flex-shrink-0" />
-          <div className="flex-1 h-0.5 bg-gradient-to-r from-red-400 via-amber-400 to-green-400" />
-          <div className="w-4 h-4 rounded-full bg-amber-400 flex-shrink-0" />
-          <div className="flex-1 h-0.5 bg-gradient-to-r from-amber-400 to-green-400" />
-          <div className="w-4 h-4 rounded-full bg-green-400 flex-shrink-0" />
-        </div>
-        <div className="flex justify-between mt-1">
-          <span className="font-mono text-xs text-cyan-400">2024 ✓</span>
-          <span className="font-mono text-xs text-red-400">2025</span>
-          <span className="font-mono text-xs text-amber-400">2025–26</span>
-          <span className="font-mono text-xs text-green-400">2026</span>
-        </div>
-      </div>
-
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 flex-1">
-        {plans.map((plan, i) => (
-          <div key={i} className="bg-gray-900/70 rounded-xl p-5 flex flex-col border border-gray-700/40 animate-fade-in"
-            style={{ animationDelay: `${0.3 + i * 0.15}s`, opacity: 0, borderTopColor: `${plan.color}50`, borderTopWidth: "2px" }}>
-            <div className="flex justify-between items-start mb-3">
-              <span className="text-2xl">{plan.icon}</span>
-              <span className="font-mono text-xs px-2 py-1 rounded" style={{ color: plan.color, background: `${plan.color}15` }}>
-                {plan.timeline}
-              </span>
+        {blocks.map((b, i) => (
+          <div key={i} className="bg-gray-900/70 rounded-2xl flex flex-col border border-gray-700/40 overflow-hidden animate-fade-in"
+            style={{ animationDelay: `${0.2 + i * 0.15}s`, opacity: 0 }}>
+
+            {/* Цветная шапка блока */}
+            <div className="px-5 pt-5 pb-4" style={{ background: `linear-gradient(135deg, ${b.color}18, ${b.color}05)`, borderBottom: `1px solid ${b.color}25` }}>
+              <div className="flex items-start justify-between mb-3">
+                <span className="text-3xl">{b.icon}</span>
+                <span className="font-mono text-xs px-2 py-1 rounded-full" style={{ color: b.tagColor, background: `${b.tagColor}15`, border: `1px solid ${b.tagColor}30` }}>
+                  {b.tag}
+                </span>
+              </div>
+              <h3 className="font-oswald text-xl font-bold text-white leading-tight">{b.title}</h3>
+              <p className="font-mono text-xs mt-0.5" style={{ color: b.color }}>{b.subtitle}</p>
             </div>
-            <span className="font-mono text-xs text-gray-600 mb-1">{plan.phase}</span>
-            <h3 className="font-oswald text-lg font-bold text-white mb-3">{plan.title}</h3>
-            <div className="space-y-2 flex-1">
-              {plan.items.map((item, j) => (
+
+            {/* Основной тезис */}
+            <div className="px-5 py-3 border-b border-gray-800/60">
+              <p className="font-golos text-white text-sm font-medium leading-snug">{b.main}</p>
+            </div>
+
+            {/* Пункты */}
+            <div className="px-5 py-3 space-y-2 flex-1">
+              {b.points.map((p, j) => (
                 <div key={j} className="flex items-start gap-2">
-                  <div className="w-1 h-1 rounded-full mt-2 flex-shrink-0" style={{ background: plan.color }} />
-                  <span className="font-golos text-gray-400 text-xs">{item}</span>
+                  <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: b.color }} />
+                  <span className="font-golos text-gray-400 text-xs leading-relaxed">{p}</span>
                 </div>
               ))}
+            </div>
+
+            {/* Цитата внизу */}
+            <div className="px-5 pb-4 pt-2">
+              <p className="font-golos text-xs italic" style={{ color: `${b.color}90` }}>{b.quote}</p>
             </div>
           </div>
         ))}
