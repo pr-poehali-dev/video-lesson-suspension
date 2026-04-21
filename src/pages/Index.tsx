@@ -754,66 +754,115 @@ const Slide7 = ({ active }: { active: boolean }) => {
   );
 };
 
-// ─── Слайд 8: Итог ────────────────────────────────────────────────────────────
+// ─── Слайд 8: Результаты и перспективы ───────────────────────────────────────
 const Slide8 = ({ active }: { active: boolean }) => {
   if (!active) return null;
   return (
-    <div className="relative h-full flex flex-col items-center justify-center text-center px-8 grid-bg overflow-hidden">
-      <div className="absolute top-6 left-6 w-16 h-16 border-t-2 border-l-2 border-cyan-400/40" />
-      <div className="absolute top-6 right-6 w-16 h-16 border-t-2 border-r-2 border-cyan-400/40" />
-      <div className="absolute bottom-6 left-6 w-16 h-16 border-b-2 border-l-2 border-cyan-400/40" />
-      <div className="absolute bottom-6 right-6 w-16 h-16 border-b-2 border-r-2 border-cyan-400/40" />
-
+    <div className="relative h-full flex flex-col px-10 py-8 grid-bg overflow-hidden">
+      <div className="absolute top-6 left-6 w-12 h-12 border-t-2 border-l-2 border-cyan-400/40" />
+      <div className="absolute top-6 right-6 w-12 h-12 border-t-2 border-r-2 border-cyan-400/40" />
+      <div className="absolute bottom-6 left-6 w-12 h-12 border-b-2 border-l-2 border-cyan-400/40" />
+      <div className="absolute bottom-6 right-6 w-12 h-12 border-b-2 border-r-2 border-cyan-400/40" />
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-green-500/4 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-cyan-500/4 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 max-w-2xl">
-        <div className="animate-fade-in" style={{ animationDelay: "0.1s", opacity: 0 }}>
-          <span className="font-mono text-xs text-gray-600 tracking-widest">СЛАЙД 08 / ИТОГИ</span>
-        </div>
-
-        <h2 className="font-oswald text-3xl font-bold text-gray-400 mt-4 mb-2 animate-fade-in"
-          style={{ animationDelay: "0.2s", opacity: 0 }}>
-          ФОРМУЛА УСПЕХА
+      <div className="mb-6 animate-fade-in relative z-10" style={{ animationDelay: "0.1s", opacity: 0 }}>
+        <span className="font-mono text-xs text-green-500/60 tracking-widest">СЛАЙД 08 / РЕЗУЛЬТАТЫ И ПЕРСПЕКТИВЫ</span>
+        <h2 className="font-oswald text-4xl font-bold text-white mt-1">
+          Что сделано и <span className="glow-green">что впереди</span>
         </h2>
+      </div>
 
-        <div className="bg-gray-900/80 border border-cyan-400/30 rounded-2xl px-8 py-6 mb-8 animate-fade-in animate-pulse-glow"
-          style={{ animationDelay: "0.3s", opacity: 0 }}>
-          <div className="font-mono text-2xl md:text-3xl text-white tracking-wider">
-            <span className="glow-cyan">Знания</span>
-            <span className="text-gray-600 mx-3">×</span>
-            <span className="glow-amber">Практика</span>
-            <span className="text-gray-600 mx-3">×</span>
-            <span className="glow-green">Страсть</span>
-            <span className="text-gray-600 mx-3">=</span>
-            <span className="text-white">🏆</span>
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+
+        {/* Левая — ДОСТИГНУТО */}
+        <div className="flex flex-col gap-4">
+          <div className="animate-fade-in" style={{ animationDelay: "0.2s", opacity: 0 }}>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-6 h-6 rounded bg-green-500/20 border border-green-500/40 flex items-center justify-center">
+                <Icon name="CheckCheck" size={14} className="text-green-400" />
+              </div>
+              <span className="font-oswald text-lg text-green-400 tracking-wider uppercase">Достигнуто</span>
+            </div>
+
+            {[
+              {
+                icon: "🎬",
+                title: "Видеоурок готов",
+                desc: "Смонтирован в CapCut, содержит анимированные формулы и демонстрацию модели",
+                color: "#00d4ff",
+              },
+              {
+                icon: "🔧",
+                title: "Модель работает",
+                desc: "LEGO-модель подвески с пружиной, амортизатором, рычагом и колесом передана в техникум",
+                color: "#ffb300",
+              },
+              {
+                icon: "📐",
+                title: "Физика изучена",
+                desc: "Законы Гука, Ньютона, принципы демпфирования и стабилизатора разобраны на практике",
+                color: "#a78bfa",
+              },
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-gray-900/60 border border-green-500/15 mb-3 animate-fade-in"
+                style={{ animationDelay: `${0.3 + i * 0.12}s`, opacity: 0 }}>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-xl"
+                  style={{ background: `${item.color}15`, border: `1px solid ${item.color}35` }}>
+                  {item.icon}
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-green-400 text-base">✅</span>
+                    <span className="font-oswald text-white text-base font-semibold">{item.title}</span>
+                  </div>
+                  <p className="font-golos text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-4 mb-8">
-          {[
-            { icon: "🎬", label: "Видеоурок\nготов", color: "#00d4ff" },
-            { icon: "🔧", label: "Модель\nсоздана", color: "#ffb300" },
-            { icon: "📖", label: "Физика\nосвоена", color: "#00ff88" },
-          ].map((item, i) => (
-            <div key={i} className="bg-gray-900/60 rounded-xl p-4 border border-gray-700/40 animate-counter-up"
-              style={{ animationDelay: `${0.5 + i * 0.1}s`, opacity: 0 }}>
-              <div className="text-2xl mb-2">{item.icon}</div>
-              <div className="font-golos text-xs text-gray-400 leading-tight whitespace-pre-line">{item.label}</div>
+        {/* Правая — В ПЛАНАХ */}
+        <div className="flex flex-col gap-4">
+          <div className="animate-fade-in" style={{ animationDelay: "0.3s", opacity: 0 }}>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-6 h-6 rounded bg-amber-500/20 border border-amber-500/40 flex items-center justify-center">
+                <Icon name="Rocket" size={13} className="text-amber-400" />
+              </div>
+              <span className="font-oswald text-lg text-amber-400 tracking-wider uppercase">В планах</span>
             </div>
-          ))}
-        </div>
 
-        <div className="animate-fade-in" style={{ animationDelay: "0.8s", opacity: 0 }}>
-          <p className="font-golos text-gray-500 text-sm italic">
-            «Физика — язык, на котором написана вся техника»
-          </p>
-          <div className="mt-4 flex items-center justify-center gap-2">
-            <div className="w-8 h-px bg-gray-700" />
-            <span className="font-mono text-xs text-gray-600 tracking-widest">ГБПОУ · 2026</span>
-            <div className="w-8 h-px bg-gray-700" />
+            {[
+              { icon: "⛔", title: "Тормозная система", sub: "Закон трения · Гидравлика", color: "#ff4444", when: "2026" },
+              { icon: "🎯", title: "Рулевое управление", sub: "Кинематика · Передаточное число", color: "#ffb300", when: "2026" },
+              { icon: "⚙️", title: "Двигатель внутреннего сгорания", sub: "Термодинамика · КПД", color: "#00ff88", when: "2027" },
+            ].map((plan, i) => (
+              <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-gray-900/60 border border-gray-700/40 mb-3 animate-fade-in"
+                style={{ animationDelay: `${0.45 + i * 0.12}s`, opacity: 0, borderLeftColor: `${plan.color}50`, borderLeftWidth: "2px" }}>
+                <span className="text-2xl flex-shrink-0">{plan.icon}</span>
+                <div className="flex-1">
+                  <p className="font-oswald text-white text-base font-semibold">{plan.title}</p>
+                  <p className="font-mono text-xs text-gray-600 mt-0.5">{plan.sub}</p>
+                </div>
+                <span className="font-mono text-xs px-2 py-1 rounded flex-shrink-0"
+                  style={{ color: plan.color, background: `${plan.color}15` }}>{plan.when}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Итоговая цитата */}
+          <div className="mt-auto bg-gray-900/60 border border-cyan-400/20 rounded-xl px-5 py-4 animate-fade-in animate-pulse-glow"
+            style={{ animationDelay: "0.9s", opacity: 0 }}>
+            <p className="font-golos text-gray-300 text-sm italic leading-relaxed">
+              «Физика — язык, на котором написана вся техника»
+            </p>
+            <div className="mt-3 flex items-center gap-2">
+              <div className="w-6 h-px bg-gray-700" />
+              <span className="font-mono text-xs text-gray-600">Сыктывкарский лесопромышленный техникум · 2026</span>
+            </div>
           </div>
         </div>
       </div>
