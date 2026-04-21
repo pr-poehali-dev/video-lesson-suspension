@@ -69,7 +69,7 @@ const Slide1 = ({ active }: { active: boolean }) => {
 
       <div className="mb-6 animate-fade-in" style={{ animationDelay: "0.1s", opacity: 0 }}>
         <span className="font-oswald text-xs tracking-[0.3em] uppercase text-gray-500 border border-gray-700 px-4 py-1.5 rounded-full">
-          ГБПОУ «Технический Колледж» · 2024
+          Сыктывкарский лесопромышленный техникум · 2024
         </span>
       </div>
 
@@ -95,7 +95,7 @@ const Slide1 = ({ active }: { active: boolean }) => {
 
       <div className="neon-border rounded-lg px-8 py-4 animate-fade-in"
         style={{ animationDelay: "0.6s", opacity: 0 }}>
-        <p className="font-golos text-white font-medium text-base">Иванова Анна Сергеевна</p>
+        <p className="font-golos text-white font-medium text-base">Владимирова Полина Вадимовна</p>
         <p className="font-golos text-gray-500 text-sm mt-1">Специальность: Техническое обслуживание и ремонт автомобилей</p>
         <p className="font-golos text-gray-500 text-sm">Руководитель: Петров А.В. · Группа 2ТО-23</p>
       </div>
